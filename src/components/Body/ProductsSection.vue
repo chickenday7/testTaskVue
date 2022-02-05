@@ -1,7 +1,7 @@
 <template>
   <section class="areaProducts" >
-    <h1 class="titleProducts">Картины эпохи Возрождения</h1>
-    <div class="setOfCards"   >
+    <h1 class="areaProducts__title">Картины эпохи Возрождения</h1>
+    <div class="areaProducts__setOfCards" >
       <CardProduct :title="product.title" :author="product.author"
                    :image="product.image" :price="product.price"
                    :discount="product.discount" :newPrice="product.newPrice"
@@ -30,19 +30,19 @@ export default {
   min-width: 100%;
   min-height: calc(100vh - 313px)
 }
-.setOfCards {
+.areaProducts__setOfCards {
   width: 100%;
   min-height: calc(100vh - 313px);
   display: flex;
   align-content: flex-start;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
-.setOfCards > cardProduct:nth-last-child(1) {
+.areaProducts__setOfCards > cardProduct:nth-last-child(1) {
   margin-right: 0;
 }
 
-.titleProducts {
+.areaProducts__title {
   font-family: MerriweatherBold;
   margin: 47px 0 41px 0;
 }
@@ -55,13 +55,22 @@ export default {
   }
 }
 @media (max-width: 1018px) {
-  .setOfCards{
+  .areaProducts__setOfCards{
     box-sizing: border-box;
     flex-wrap: wrap;
     align-content: flex-start;
     justify-content: center;
-    height: calc(100vh - 313px);
+    min-height: calc(100vh - 313px);
     max-width: 100%;
+  }
+  .areaProducts__title{
+    margin: 47px 0 41px 13%;
+  }
+
+}
+@media (max-width: 700px) {
+  .areaProducts__setOfCards{
+    justify-content: center;
   }
 }
 </style>

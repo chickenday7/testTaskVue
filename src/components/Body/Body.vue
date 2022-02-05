@@ -45,6 +45,7 @@ export default {
 @media (max-width: 1018px) {
   .contentBody{
     max-width:100%;
+    min-height: 100vh;
   }
 }
 @media (max-width: 1018px) {
@@ -52,9 +53,31 @@ export default {
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-grow: 1;
     height: auto;
+  }
+  .contentBody{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 946px) {
+  .contentBody{
+    max-width: 700px;
+    margin: 0 calc((100vw - 700px)/2);
+    align-items: stretch;
+  }
+}
+@media (max-width: 700px) {
+  .contentBody{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 0;
+    max-width: 100%;
   }
 }
 </style>

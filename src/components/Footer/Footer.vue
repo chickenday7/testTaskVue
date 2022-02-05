@@ -1,13 +1,23 @@
 <template>
   <footer class="wrapperFooter">
-    <div id="contentFooter">
+    <div class="contentFooter">
       <Nav/>
+      <div class="contacts">
+        <div class="contacts__phone">
+          +7 (812) 555-55-55
+        </div>
+        <div class="contacts__address">
+          г. Санкт-Петербург, ул. Ефимова, 3
+        </div>
+      </div>
+
     </div>
   </footer>
 </template>
 
 <script>
 import Nav from '../Header/Nav'
+
 export default {
   name: 'Footer',
   components: { Nav }
@@ -15,32 +25,108 @@ export default {
 </script>
 
 <style scoped>
-.wrapperFooter{
+.wrapperFooter {
+  flex-direction: row;
   min-width: 100%;
   background: #ECEAEA;
   box-sizing: border-box;
   flex-grow: 0;
   height: 96px;
 }
-#contentFooter {
+
+.contentFooter {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 18.35vw;
+  align-items: center;
+  padding: 4px 17.35vw 0 18vw;
   height: 100%;
   max-width: calc(100% - 36.7%);
 }
-#contentFooter > nav{
-  color: #555555 ;
+
+.contacts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  white-space: nowrap;
+  font-family: Merriweather;
+  font-size: 14px;
+  line-height: 21px;
+  max-width: 400px;
+  padding-bottom: 10px;
 }
+
+.contacts__phone {
+  width: 50%;
+}
+
+.contacts__address {
+  padding-top: 2px;
+  padding-left: 13%;
+}
+
+#contentFooter > nav {
+  color: #555555;
+}
+
 @media (max-width: 1604px ) {
- #contentFooter{
-   max-width: 1016px;
- }
+  .contentFooter {
+    max-width: 1016px;
+    padding: 0 calc((100vw - 1016px) / 2);
+  }
+
+  .contacts {
+    font-size: 13px;
+    white-space: normal;
+  }
+
+  .contacts__phone {
+    white-space: nowrap;
+  }
 }
+
 @media (max-width: 1018px) {
-  #contentFooter{
-    margin-bottom: 15vh;
+  .contentFooter {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .contacts {
+    min-width: 10%;
+    white-space: nowrap;
+    flex-direction: column;
+    padding-right: 13%;
+  }
+
+  .contacts__address {
+    padding: 5px 0 0 0;
+  }
+}
+
+@media (max-width: 946px) {
+  .contentFooter {
+    max-width: 700px;
+    padding: 0 calc((100vw - 700px) / 2);
+    align-items: stretch;
+  }
+
+  .contacts {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .contentFooter {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    max-width: 100%;
+  }
+}
+@media (max-width: 590px) {
+  .contacts{
+    font-size: 12px;
   }
 }
 </style>

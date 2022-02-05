@@ -38,9 +38,22 @@ export default {
     margin: auto;
     background: rgba(255,255,255, 1);
     border-radius: 12px;
-    min-width: 50vw;
-    min-height: 50vh;
+    min-width: 60vw;
+    min-height: 60vh;
     opacity: 1;
     z-index: 2;
   }
+  @media (max-width: 1160px) {
+    .modalWindow__content{
+      min-width: 75vw;
+      min-height: 75vh;
+    }
+  }
+  @media (max-width: 700px) {
+    .modalWindow__content{
+      min-width: 80vw;
+      min-height: 80vh;
+    }
+  }
+
 </style>

@@ -39,7 +39,7 @@ export default {
   width: 118px;
 }
 .searchBtn{
-  width: 122px;
+  min-width: 122px;
 }
 .cardBtn {
   width: 122px;
@@ -66,5 +66,11 @@ export default {
 
 .button > button::before {
 
+}
+
+@media (max-width: 590px) {
+  .searchBtn{
+    display: none;
+  }
 }
 </style>

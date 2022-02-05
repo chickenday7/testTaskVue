@@ -33,7 +33,7 @@ export default {
       _products: [
         {
           id: '1',
-          title: 'Рождение венеры',
+          title: 'Рождение Венеры',
           author: 'Сандро Боттичелли',
           discount: true,
           access: true,

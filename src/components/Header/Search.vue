@@ -48,13 +48,13 @@ export default {
 .search {
   display: flex;
   flex-direction: row;
-  margin: 24px 0;
+  margin: 24px 0 0 0;
   min-width: 34.229%;
   height: 48px;
 }
 
 .search__input {
-  width: 70%;
+  min-width: 70%;
   border: #E1E1E1 solid 1px;
 }
 
@@ -64,16 +64,42 @@ export default {
   color: #343030;
   width: 100%;
   height: 20px;
-  padding: 12px 0 0 17px;
-  letter-spacing: 0.3px;
+  padding: 12px 0 0 15px;
   border: none;
   outline: none;
   background: #F6F3F3;
   font-size: 14px;
 }
-@media (max-width: 1711px ) {
- .search__input > input{
-    font-size: 12px ;
+
+@media (max-width: 1018px) {
+  .search {
+    margin-top: 0;
+    padding-right: 15%;
+  }
+
+  .search__input > input {
+    padding: 12px 5px 0 10px;
+  }
+}
+
+@media (max-width: 990px) {
+  .search__input{
+    max-width: 180px;
+  }
+}
+@media (max-width: 946px) {
+  .search{
+    padding-top: 20px;
+  }
+}
+@media (max-width: 700px) {
+  .search{
+    padding-top: 0;
+  }
+}
+@media (max-width: 590px) {
+  .search{
+    display: none;
   }
 }
 </style>

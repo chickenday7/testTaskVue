@@ -111,8 +111,8 @@ export default {
 <style scoped>
 .cardProduct {
   box-sizing: border-box;
-  width: 30%;
-  max-height: 328px;
+  width: 23%;
+  min-height: 328px;
   border: 1px solid black;
   margin-right: 2.633%;
 }
@@ -171,7 +171,7 @@ export default {
   margin: 0;
   line-height: 24px;
   white-space: nowrap;
-  padding-right: 15px;
+  padding-right: 20px;
 }
 
 .actualPrice__discountOff {
@@ -182,7 +182,7 @@ export default {
   line-height: 24px;
   margin: 0;
   white-space: nowrap;
-  padding-right: 15px;
+  padding-right: 25px;
 }
 
 .wrapperPurchase__state {
@@ -192,15 +192,22 @@ export default {
   line-height: 24px;
   margin-top: 12px;
 }
+.disable {
+  opacity: 1;
+}
+
 @media (max-width: 1018px) {
   .cardProduct {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     box-sizing: border-box;
     width: 35%;
     height: 100%;
-    max-height: 328px;
     border: 1px solid black;
     flex-basis: content-box;
     margin: 15px;
+    min-height: 328px
   }
   .cardProduct:nth-child(-n+2){
     margin-top: 0;
@@ -208,8 +215,26 @@ export default {
   .cardProduct:nth-last-child(1){
     margin: 15px;
   }
+  .cardProduct__photo {
+    border: 1px black solid;
+    width: 100%;
+    height: 30vh;
+    cursor: pointer;
+    margin-bottom: 7px;
+  }
 }
-.disable {
-  opacity: 1;
+@media (max-width: 946px) {
+  .cardProduct__photo{
+    height: 19.5vh;
+  }
+}
+@media (max-width: 700px) {
+  .cardProduct{
+    width: 80%;
+    min-height: 420px;
+  }
+  .cardProduct__photo{
+    height: 54vw;
+  }
 }
 </style>
