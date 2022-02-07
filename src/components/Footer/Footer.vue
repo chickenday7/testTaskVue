@@ -1,7 +1,7 @@
 <template>
   <footer class="wrapperFooter">
     <div class="contentFooter">
-      <Nav/>
+      <Nav position="footer"/>
       <div class="contacts">
         <div class="contacts__phone">
           +7 (812) 555-55-55
@@ -10,7 +10,6 @@
           г. Санкт-Петербург, ул. Ефимова, 3
         </div>
       </div>
-
     </div>
   </footer>
 </template>
@@ -49,6 +48,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   white-space: nowrap;
+  color: #555555;
   font-family: Merriweather;
   font-size: 14px;
   line-height: 21px;
@@ -127,6 +127,14 @@ export default {
 @media (max-width: 590px) {
   .contacts{
     font-size: 12px;
+  }
+}
+@media (max-width: 359px) {
+  .contacts{
+    font-size: 10px;
+  }
+  .contacts__address{
+    white-space: normal;
   }
 }
 </style>

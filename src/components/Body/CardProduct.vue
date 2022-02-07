@@ -1,9 +1,9 @@
 <template>
-  <div class="cardProduct" v-bind:class="{disable: !access}">
-    <img v-on:click="showModal($event,id)" class="cardProduct__photo" src="{{image}}" >
+  <div class="cardProduct" >
+    <img v-on:click="showModal($event,id)" v-bind:class="{disable: !access}" class="cardProduct__photo" src="{{image}}">
     <div v-on:click="showModal($event,id)">
-    <h2 class="cardProduct__title">«{{ title }}»</h2>
-    <h2 class="cardProduct__title">{{ author }}</h2>
+      <h2 v-bind:class="{disable: !access}" class="cardProduct__title">«{{ title }}»</h2>
+      <h2 v-bind:class="{disable: !access}" class="cardProduct__title">{{ author }}</h2>
     </div>
     <div class="wrapperPurchase" v-if="access">
       <div v-if="discount" class="wrapperPurchase_discountOn">
@@ -18,7 +18,7 @@
                    :title="'Купить'"/>
     </div>
     <div class="wrapperPurchase" v-else>
-      <h3 class="wrapperPurchase__state">Продана на аукционе</h3>
+      <h3 v-bind:class="{disable: !access}" class="wrapperPurchase__state">Продана на аукционе</h3>
     </div>
   </div>
 </template>
@@ -67,11 +67,6 @@ export default {
     test (bool) {
       return !bool
     },
-    correctPrice (n) {
-      return typeof n !== 'number' ? 'NaN' : n.toFixed(3).replace(/\d$/, '')
-        .replace(/(\d)(?=(?:\d{3})+\.)/g, '$1 ')
-        .split('').slice(0, -3).join('')
-    },
     async addCard () {
       this.isLoading = true
       this.isDisable = true
@@ -98,22 +93,29 @@ export default {
     }
   },
   setup () {
+    const correctPrice = (price) => {
+      return typeof price !== 'number' ? 'NaN' : price.toFixed(3).replace(/\d$/, '')
+        .replace(/(\d)(?=(?:\d{3})+\.)/g, '$1 ')
+        .split('').slice(0, -3).join('')
+    }
     const showModal = inject('showModal')
     const currentProduct = inject('currentProduct')
     return {
       showModal,
-      currentProduct
+      currentProduct,
+      correctPrice
     }
   }
 }
 </script>
 
 <style scoped>
+
 .cardProduct {
   box-sizing: border-box;
   width: 23%;
   min-height: 328px;
-  border: 1px solid black;
+  border: 1px solid #E1E1E1;
   margin-right: 2.633%;
 }
 
@@ -192,10 +194,9 @@ export default {
   line-height: 24px;
   margin-top: 12px;
 }
-.disable {
-  opacity: 1;
+.disable{
+  color: rgba(52, 48, 48, 0.3);
 }
-
 @media (max-width: 1018px) {
   .cardProduct {
     display: flex;
@@ -209,12 +210,15 @@ export default {
     margin: 15px;
     min-height: 328px
   }
-  .cardProduct:nth-child(-n+2){
+
+  .cardProduct:nth-child(-n+2) {
     margin-top: 0;
   }
-  .cardProduct:nth-last-child(1){
+
+  .cardProduct:nth-last-child(1) {
     margin: 15px;
   }
+
   .cardProduct__photo {
     border: 1px black solid;
     width: 100%;
@@ -223,17 +227,20 @@ export default {
     margin-bottom: 7px;
   }
 }
+
 @media (max-width: 946px) {
-  .cardProduct__photo{
+  .cardProduct__photo {
     height: 19.5vh;
   }
 }
+
 @media (max-width: 700px) {
-  .cardProduct{
+  .cardProduct {
     width: 80%;
     min-height: 420px;
   }
-  .cardProduct__photo{
+
+  .cardProduct__photo {
     height: 54vw;
   }
 }

@@ -3,14 +3,14 @@
     <button v-on:click="$emit('onDeleteCard')" v-if="isCard">В корзине</button>
     <button v-on:click="$emit('onAddCard')" v-else>{{ title }}</button>
   </div>
-  <div v-else class="button">
-    Loading
-  </div>
+  <Preloader class="preloader" v-else/>
 </template>
 
 <script>
+import Preloader from './Preloader'
 export default {
   name: 'SuperButton',
+  components: { Preloader },
   props: {
     title: {
       type: String,
@@ -45,7 +45,9 @@ export default {
   width: 122px;
   background: #5B3A32;
 }
-
+.preloader{
+  margin: 5px auto;
+}
 .button:hover {
   background: #776763;
 }

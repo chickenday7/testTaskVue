@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <ModalWindow :products="state.currentProduct" v-on:click="hideModal"
+    <ModalWindow :product="state.currentProduct[0]" v-on:click="hideModal"
                  :isVisible="state.isVisible"/>
     <Header/>
     <Body v-if="state.newArrayProducts.length !== 0" :products="state.newArrayProducts"/>
-    <div v-else-if="state.newArrayProducts.length === 0">
+    <div class="productNotFound" v-else-if="state.newArrayProducts.length === 0">
       <h3>Картина не найдена</h3>
     </div>
     <Footer/>
@@ -17,7 +17,7 @@ import Header from './components/Header/Header'
 import Body from './components/Body/Body'
 import Footer from './components/Footer/Footer'
 import ModalWindow from './components/SuperComponents/ModalWindow'
-import { provide, reactive, onMounted } from 'vue'
+import { onMounted, provide, reactive } from 'vue'
 
 export default {
   name: 'App',
@@ -142,6 +142,10 @@ body {
 
 :-moz-placeholder { /* Firefox 18- */
   color: #9F9F9F;
+}
+.productNotFound{
+  min-height: 76vh;
+  margin: auto;
 }
 @media (max-width: 1018px) {
   #app{

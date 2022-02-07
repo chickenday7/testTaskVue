@@ -1,10 +1,7 @@
 <template>
   <header class="wrapperHeader">
     <div class="contentHeader">
-      <Nav/>
-      <div class="searchBtn">
-        Поиск
-      </div>
+      <Nav position="header"/>
       <Search :products="products"/>
     </div>
   </header>
@@ -71,7 +68,7 @@ export default {
 .searchBtn {
   padding-bottom: 8px;
   padding-right: 15%;
-  font-family: MerriweatherBold;
+  font-family: Merriweather;
   display: none;
 }
 
