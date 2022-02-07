@@ -67,6 +67,7 @@ export default {
   display: flex;
   height: 100%;
   max-width: 100%;
+  z-index: 999;
 }
 
 .modalWindow {
@@ -75,8 +76,6 @@ export default {
   border-radius: 12px;
   min-width: 60vw;
   min-height: 60vh;
-  opacity: 1;
-  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;

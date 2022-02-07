@@ -1,9 +1,9 @@
 <template>
-  <div class="cardProduct" >
-    <img v-on:click="showModal($event,id)" v-bind:class="{disable: !access}" class="cardProduct__photo" src="{{image}}">
+  <div class="cardProduct" v-bind:class="{disable: !access}" >
+    <img v-on:click="showModal($event,id)" class="cardProduct__photo" :src="image">
     <div v-on:click="showModal($event,id)">
-      <h2 v-bind:class="{disable: !access}" class="cardProduct__title">«{{ title }}»</h2>
-      <h2 v-bind:class="{disable: !access}" class="cardProduct__title">{{ author }}</h2>
+      <h2  class="cardProduct__title">«{{ title }}»</h2>
+      <h2  class="cardProduct__title">{{ author }}</h2>
     </div>
     <div class="wrapperPurchase" v-if="access">
       <div v-if="discount" class="wrapperPurchase_discountOn">
@@ -18,7 +18,7 @@
                    :title="'Купить'"/>
     </div>
     <div class="wrapperPurchase" v-else>
-      <h3 v-bind:class="{disable: !access}" class="wrapperPurchase__state">Продана на аукционе</h3>
+      <h3  class="wrapperPurchase__state">Продана на аукционе</h3>
     </div>
   </div>
 </template>
@@ -99,10 +99,8 @@ export default {
         .split('').slice(0, -3).join('')
     }
     const showModal = inject('showModal')
-    const currentProduct = inject('currentProduct')
     return {
       showModal,
-      currentProduct,
       correctPrice
     }
   }
@@ -124,11 +122,9 @@ export default {
 }
 
 .cardProduct__photo {
-  border: 1px black solid;
   width: 100%;
   height: 48%;
   cursor: pointer;
-  margin-bottom: 7px;
 }
 
 .cardProduct__title {
@@ -195,7 +191,7 @@ export default {
   margin-top: 12px;
 }
 .disable{
-  color: rgba(52, 48, 48, 0.3);
+  opacity: 0.5;
 }
 @media (max-width: 1018px) {
   .cardProduct {

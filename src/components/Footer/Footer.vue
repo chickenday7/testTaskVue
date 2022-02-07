@@ -52,17 +52,31 @@ export default {
   font-family: Merriweather;
   font-size: 14px;
   line-height: 21px;
-  max-width: 400px;
+  width: 34.5%;
   padding-bottom: 10px;
 }
 
 .contacts__phone {
   width: 50%;
+  position: relative;
+}
+.contacts__phone::before{
+  top: 4px;
+  left: -22px;
+  position: absolute;
+  content: url("https://svgshare.com/i/e23.svg");
 }
 
 .contacts__address {
+  position: relative;
   padding-top: 2px;
-  padding-left: 13%;
+  padding-left: 18%;
+}
+.contacts__address::before{
+  top: 5px;
+  left: 56px;
+  position: absolute;
+  content: url("https://svgshare.com/i/e3m.svg");
 }
 
 #contentFooter > nav {

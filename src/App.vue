@@ -6,6 +6,7 @@
     <Body v-if="state.newArrayProducts.length !== 0" :products="state.newArrayProducts"/>
     <div class="productNotFound" v-else-if="state.newArrayProducts.length === 0">
       <h3>Картина не найдена</h3>
+      <v-img></v-img>
     </div>
     <Footer/>
   </div>
@@ -37,7 +38,7 @@ export default {
           author: 'Сандро Боттичелли',
           discount: true,
           access: true,
-          image: '',
+          image: 'https://i.ibb.co/JBvK6Lh/image1.png',
           price: 2e6,
           newPrice: 1e6
         },
@@ -47,7 +48,7 @@ export default {
           author: 'Леонардо да Винчи',
           discount: false,
           access: true,
-          image: 'https://www.visituffizi.org/img/artworks/botticelli-birth-venus.jpg',
+          image: 'https://i.ibb.co/zx7zyk8/image2.png',
           price: 3e6,
           newPrice: 0
         },
@@ -57,7 +58,7 @@ export default {
           author: 'Микеланджело',
           discount: true,
           access: true,
-          image: 'https://www.visituffizi.org/img/artworks/botticelli-birth-venus.jpg',
+          image: 'https://i.ibb.co/vh42Vw8/image3.png',
           price: 6e6,
           newPrice: 5e6
         },
@@ -67,7 +68,7 @@ export default {
           author: 'Рембрандт',
           discount: true,
           access: false,
-          image: 'https://www.visituffizi.org/img/artworks/botticelli-birth-venus.jpg',
+          image: 'https://i.ibb.co/B2W4Zgd/image4.png',
           price: 3e6,
           newPrice: 0
         }
